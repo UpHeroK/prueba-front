@@ -1,7 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-
+import EditUser from '../views/EditUser.vue'
+import EditNivel from '../views/EditNivel.vue'
+import CreateUser from '../views/CreateUser.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -11,13 +13,30 @@ const routes = [
     component: HomeView
   },
   {
-    path: '/about',
-    name: 'about',
+    path: '/formulario/:id',
+    name: 'usuarios',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    component: EditUser
+  },
+  
+  {
+    path: '/nivel/:id',
+    name: 'niveles',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: EditNivel
+  },
+  {
+    path: '/formulario',
+    name: 'createUser',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: CreateUser
+  },
 ]
 
 const router = new VueRouter({
